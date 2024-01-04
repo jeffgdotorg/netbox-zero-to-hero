@@ -6,11 +6,11 @@ Hello and welcome to this short course designed to take new NetBox users from 'Z
 The goals of this course are as follows: 
 
 - Enable you to get up and running with minimal fuss and immediately start to get value from NetBox
-- Build a solid foundation from which you can start to leverage NetBox's extra features ie. custom fields, reports, plugins etc
+- Build a solid foundation from which you can start to leverage NetBox's extra features, e.g. custom fields, reports, plugins etc.
 - Introduce the power of NetBox to drive your Network Automation efforts as the 'Single Source Of Truth' for your NetDevOps workflows
 
 ## Course Format
-The course consists of bite sized modules, each one introducing a new concept or feature of NetBox. Each module is a step in the journey that leads to the deployment of a new branch office network at a remote site for a fictional company. 
+The course consists of bite-sized modules, each one introducing a new concept or feature of NetBox. Each module is a step in the journey that leads to the deployment of a new branch office network at a remote site for a fictional company. 
 
 Each module includes a video teaching you how to interact with NetBox either via the Web UI or programmatically using the REST API. You can follow along with your own instance of NetBox, and all the code is available in the accompanying [Git Repository](https://github.com/netbox-community/netbox-zero-to-hero) - including a [Postman Collection](https://github.com/netbox-community/netbox-zero-to-hero/tree/main/postman), [Ansible Playbooks](https://github.com/netbox-community/netbox-zero-to-hero/tree/main/ansible) and [Python Scripts](https://github.com/netbox-community/netbox-zero-to-hero/tree/main/python_scripts) - so you will have a fully working code base which you can clone to get you started on your way to becoming a NetBox Hero!
 
@@ -26,7 +26,7 @@ The fictional scenario that will be used throughout this course to demonstrate N
 - The network team has been handed a new project to deploy a branch office network in the new location in Brisbane, Australia. The corporate standard branch office design consists of a WAN Router, an Access Switch and Wireless Access Points
 - Susan and Eric are going to use NetBox every step of the way to help deliver the project on time and also to power some network automation to get the devices configured error free (this has long been a problem for them with new sites taking hours and even days to stand up!)
 
-So, with that said, lets dive in!
+So, with that said, let's dive in!
 
 ## Modules
 
@@ -58,7 +58,7 @@ So, with that said, lets dive in!
 - Use the web interface to view Wireless LAN information
 
 ### [Module 7: Automate All the Things!](modules/7-automate-all-the-things/7-automate-all-the-things.md)
-- Set up Ansible to use NetBox as the source of it's Dynamic Inventory
+- Set up Ansible to use NetBox as the source of its Dynamic Inventory
 - Write Ansible playbooks to make REST API calls to NetBox and extract the data to build the device configurations
 - Automate the generation of device configurations using Jinja templates, passing in the data from NetBox
   
@@ -80,7 +80,7 @@ So, with that said, lets dive in!
 ### [Module 11: Custom Scripts](modules/11-custom-scripts/11-custom-scripts.md)
 - Describe what Custom Scripts are in NetBox and what kind of tasks they can be used to accomplish
 - Understand the basics of writing Custom Scripts and also where to find documentation to help you develop your own scripts
-- Kick start your own Custom Scripts collection, with two example scripts to get you up and running. 
+- Kick start your own Custom Scripts collection, with two example scripts to get you up and running
 
 ### [Module 12: The Boss is Asking for a Report (another easy win!)](modules/12-the-boss-is-asking-for-a-report/12-the-boss-is-asking-for-a-report.md)
 - Describe what NetBox reports are and what kind of things they can be used to verify

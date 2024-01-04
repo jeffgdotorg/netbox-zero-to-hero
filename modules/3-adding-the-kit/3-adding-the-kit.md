@@ -13,7 +13,7 @@ By the end of this module you will be able to:
 ## Why Use The REST API? 
 You can obviously add all this data manually via the Web Interface, but by getting hands on with the REST API, you will start to take your skills with NetBox to the next level! A lot of Network Engineers have never used an API (they have surely heard of them by now though) and they might be unsure of how to work with one, or why they should even bother. 
 
-The goal of this module is to demystify REST API's and show you how powerful and simple to use the NetBox REST API is. You will quickly start to see how you can interact programmatically with NetBox and how NetBox can drive your Network Automation efforts going forward.
+The goal of this module is to demystify REST APIs and show you how powerful and simple to use the NetBox REST API is. You will quickly start to see how you can interact programmatically with NetBox and how NetBox can drive your Network Automation efforts going forward.
 
 ## Get Hands On
 If you'd like to follow along with the examples used in this course, it's super easy to do, and you have a few options: 

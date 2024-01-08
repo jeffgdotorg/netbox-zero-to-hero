@@ -47,84 +47,84 @@ From the NetBox documentation:
 IPAM data is hierarchical in nature and NetBox reflects this: 
 
 ## RIRs and Aggregates
-Regional Internet Registries (**RIRs**), such as ARIN, RIPE, APNIC control the allocation of globally-routable address space. Internal IP address space (eg. RFC 1918) is also treated as an RIR within NetBox, and users can can create whatever RIRs they like. 
+Regional Internet Registries (**RIRs**), such as ARIN, RIPE, and APNIC, control the allocation of globally-routable address space. Internal IP address space (e.g. RFC 1918) is also treated as an RIR within NetBox, and users can can create whatever RIRs they like. 
 
 **Aggregates** are assigned to RIRs, and typically, an aggregate will correspond to either an allocation of public (globally routable) IP space granted by a regional authority, or a private (internally-routable) designation.
 
 Our fictional organization will be using RFC 1918 Private Address space for IPv4, which has the following Aggregates assigned to it: 
 
--  10.0.0.0/8
--  172.16.0.0/12
--  192.168.0.0/16
+-  `10.0.0.0/8`
+-  `172.16.0.0/12`
+-  `192.168.0.0/16`
 
 ## Prefixes and IP Ranges
-IP subnets are defined within an aggregate. **Prefixes** extend the hierarchy by nesting within one another. (For example, 192.168.123.0/24 will appear within 192.168.0.0/16.) Each prefix can be assigned a functional role as well as an operational status.
+IP subnets are defined within an aggregate. **Prefixes** extend the hierarchy by nesting within one another. (For example, `192.168.123.0/24` will appear within `192.168.0.0/16`.) Each prefix can be assigned a functional role as well as an operational status.
 
-**IP Range** - these are are arbitrary ranges of individual IP addresses within a prefix, all sharing the same mask. Ranges are commonly affiliated with DHCP scopes, but can be used for any similar purpose.
+**IP Ranges** are are arbitrary ranges of individual IP addresses within a prefix, all sharing the same mask. Ranges are commonly affiliated with DHCP scopes, but can be used for any similar purpose.
 
-Our fictional organization will be using a 'SuperNet' Prefix of **192.168.0.0/22** for the planned new office site in Brisbane, and this will be further divided into smaller, individual prefixes. When populating NetBox with this data the Ansible playbook will request the next available prefix based on prefix length requirements. 
+Our fictional organization will be using a 'SuperNet' Prefix of **`192.168.0.0/22`** for the planned new office site in Brisbane, and this will be further divided into smaller, individual prefixes. When populating NetBox with this data the Ansible playbook will request the next available prefix based on prefix length requirements. 
 
 ## IP Addresses
-These are individual IP addresses along with their subnet mask, that are automatically arranged beneath their parent prefixes. 
+These entities represent individual IP addresses, along with their subnet masks, and are automatically arranged beneath their parent prefixes. 
 
 ## Prefix and VLAN Roles
-Roles define the function of a prefix or VLAN - for example you might define separate Voice and WiFi roles for your prefixes and VLANs. The following roles will be used by our fictional organization: 
+Roles define the function of a prefix or VLAN - for example you might define separate `Voice` and `WiFi` roles for your prefixes and VLANs. The following roles will be used by our fictional organization: 
 
-- Branch_Data
-- Branch_Voice
-- Branch_WiFi
-- Guest_WiFi
-- Network_Management
-- Point_to_Point
+- `Branch_Data`
+- `Branch_Voice`
+- `Branch_WiFi`
+- `Guest_WiFi`
+- `Network_Management`
+- `Point_to_Point`
 
 ## VLAN Groups
 VLAN groups can be used to organize your VLANs in a way that suits your organization, and their scope can be a particular region, site group, site, location, rack, cluster group, or cluster. 
 
-Our fictional organization will be using a VLAN group called **Brisbane_VLANS** which will be scoped to the site level. This means that any VLAN assigned from this group will be tied to devices and VM's within the scoped site. 
+Our fictional organization will be using a VLAN group called **`Brisbane_VLANS`** which will be scoped to the site level. This means that any VLAN assigned from this group will be tied to devices and VM's within the scoped site. 
 
 ## The Project - New Branch Site IPAM Data
 Our fictional organization will be using the following IPAM data for the new site in Brisbane: 
 
 ### Brisbane Prefixes and VLANs
-All prefixes assigned will be the next available, and allocated dynamically in NetBox from the **192.168.0.0/22** Supernet using an Ansible playbook.
+All prefixes assigned will be the next available, and allocated dynamically in NetBox from the **`192.168.0.0/22`** supernet using an Ansible playbook.
 
 | VLAN Name | VLAN ID | VLAN Group | Role | Prefix Length |
 | :--- | :---: | :--- | :--- | :---: |
-| DATA | 10 | Brisbane_VLANS | Branch_Data | /25 | 
-| VOICE | 20 | Brisbane_VLANS | Branch_Voice | /25 | 
-| B_WIFI | 30 | Brisbane_VLANS | Branch_WiFi | /25 | 
-| G_WIFI | 40 | Brisbane_VLANS | Guest_WiFi | /25 | 
-| NETMAN | 50 | Brisbane_VLANS | Network_Management | /26 | 
-| P2P | 60 | Brisbane_VLANS | Point_to_Point | /30 | 
+| `DATA` | 10 | `Brisbane_VLANS` | `Branch_Data` | `/25` | 
+| `VOICE` | 20 | `Brisbane_VLANS` | `Branch_Voice` | `/25` | 
+| `B_WIFI` | 30 | `Brisbane_VLANS` | `Branch_WiFi` | `/25` | 
+| `G_WIFI` | 40 | `Brisbane_VLANS` | `Guest_WiFi` | `/25` | 
+| `NETMAN` | 50 | `Brisbane_VLANS` | `Network_Management` | `/26` | 
+| `P2P | 60 | `Brisbane_VLANS` | `Point_to_Point` | `/30` | 
 
 ### Brisbane IPv4 Addresses
 All IP addresses assigned will be the next available, and allocated dynamically from the corresponding Prefix using an Ansible playbook. The list of devices and interfaces to be assigned IP addresses is as follows: 
 
 | Device | Interface | VLAN ID |
 | --- | --- | --- | 
-| AUBRI01-RTR-1 | GigabitEthernet0 | 50 |
-| AUBRI01-RTR-1 | GigabitEthernet0/0/0 | 60 |
-| AUBRI01-SW-1|  me0 | 50 |
-| AUBRI01-SW-1 | ge-0/0/0 | 60 |
-| AUBRI01-SW-1 | vlan.10 | 10 |
-| AUBRI01-SW-1 | vlan.20 | 20 |
-| AUBRI01-SW-1 | vlan.30 | 30 |
-| AUBRI01-SW-1 | vlan.40 | 40 |
-| AUBRI01-SW-1 | vlan.50 | 50 |
-| AUBRI01-SW-1 | vlan.60 | 60 |
-| AUBRI01-AP-1 |  main | 50 |
-| AUBRI01-AP-2 |  main | 50|
-| AUBRI01-CON-1 | Ethernet | 50 |
+| `AUBRI01-RTR-1` | `GigabitEthernet0` | 50 |
+| `AUBRI01-RTR-1` | `GigabitEthernet0/0/0` | 60 |
+| `AUBRI01-SW-1`|  `me0` | 50 |
+| `AUBRI01-SW-1` | `ge-0/0/0` | 60 |
+| `AUBRI01-SW-1` | `vlan.10` | 10 |
+| `AUBRI01-SW-1` | `vlan.20` | 20 |
+| `AUBRI01-SW-1` | `vlan.30` | 30 |
+| `AUBRI01-SW-1` | `vlan.40` | 40 |
+| `AUBRI01-SW-1` | `vlan.50` | 50 |
+| `AUBRI01-SW-1` | `vlan.60` | 60 |
+| `AUBRI01-AP-1` |  `main` | 50 |
+| `AUBRI01-AP-2` |  `main` | 50|
+| `AUBRI01-CON-1` | `Ethernet` | 50 |
 
 ## Video - Adding IPAM Data Into NetBox
-OK, so that's the planning and design work done - now onto the demo! This video will step you through how to populate NetBox with the IPAM data using Ansible. As always the best way to understand the power of NetBox is to dive right in, so let's get started!
+OK, so that's the planning and design work done - now on to the demo! This video will step you through how to populate NetBox with the IPAM data using Ansible. As always the best way to understand the power of NetBox is to dive right in, so let's get started!
 
 [![Adding IPAM data into Netbox](https://img.youtube.com/vi/XCwO6RGpBpI/maxresdefault.jpg)](https://www.youtube.com/watch?v=XCwO6RGpBpI)
 
 ## Summary 
 In this module you have learned how NetBox Models IPAM data, how to integrate NetBox with Ansible, and in particular the collection of NetBox Ansible modules. If you have any questions on how to use Ansible with NetBox then there is a dedicated Slack channel **#ansible** on [netdev-community.slack.com](https://netdev-community.slack.com/) so don't hesitate to pop on over there and join in the discussion!
 
-In [Module 5: Making the Connections](../5-making-the-connections/5-making-the-connections.md), Eric will add the cables and connections for the new Brisbane branch office network, using the web interface to bulk upload data from a CSV file.
+In [Module 5: Making the Connections](../5-making-the-connections/5-making-the-connections.md), Eric will add the cables and connections for the new Brisbane branch office network, using the web interface to bulk-upload data from a CSV file.
 
 ## Join the Discussion
 If you have any questions as you go through the course then pop on over to the [NetBox Zero to Hero channel](https://netdev-community.slack.com/archives/C0453L6565C) on the NetDev Community Slack! If you aren't already a member then you can sign up for free [here](https://netdev.chat/).

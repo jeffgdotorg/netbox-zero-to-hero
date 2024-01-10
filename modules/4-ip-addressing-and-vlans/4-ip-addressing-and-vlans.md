@@ -80,7 +80,7 @@ Roles define the function of a prefix or VLAN - for example you might define sep
 ## VLAN Groups
 VLAN groups can be used to organize your VLANs in a way that suits your organization, and their scope can be a particular region, site group, site, location, rack, cluster group, or cluster. 
 
-Our fictional organization will be using a VLAN group called **`Brisbane_VLANS`** which will be scoped to the site level. This means that any VLAN assigned from this group will be tied to devices and VM's within the scoped site. 
+Our fictional organization will be using a VLAN group called **`Brisbane_VLANS`** which will be scoped to the site level. This means that any VLAN assigned from this group will be tied to devices and VMs within the scoped site. 
 
 ## The Project - New Branch Site IPAM Data
 Our fictional organization will be using the following IPAM data for the new site in Brisbane: 

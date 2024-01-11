@@ -13,7 +13,7 @@ If you have been through the previous modules of this course you will know that 
 
 Getting started with Python is super easy and a lot of fun too! The [scripts](https://github.com/netbox-community/netbox-zero-to-hero/tree/main/python_scripts) included in the Git repository for this course will get you up and running quickly and within a few minutes you can be interacting with the NetBox database programmatically via the REST API.
 
-Also, as any Network Engineer / IT Pro looking to expand their skill set knows, Automation is becoming critical for managing modern networks, so by adding some basic Python coding skills to your armory, you will set yourself up for long term career success!
+Also, as any Network Engineer / IT Pro looking to expand their skill set knows, automation is becoming critical for managing modern networks, so by adding some basic Python coding skills to your armory, you will set yourself up for long-term career success!
 
 ## Get Hands On
 If you'd like to follow along with the examples used in this course, it's super easy to do, and you have a few options: 
@@ -48,12 +48,12 @@ If you are following along you can find the [python scripts](https://github.com/
 [![Adding wireless LANs into Netbox](https://img.youtube.com/vi/rewxPa58VCw/maxresdefault.jpg)](https://www.youtube.com/watch?v=rewxPa58VCw)
 
 ## Summary
-In this module you have learned how NetBox Models Wireless LANs, and how to add Wireless LAN data using simple Python scripts.
+In this module you have learned how NetBox models Wireless LANs, and how to add Wireless LAN data using simple Python scripts.
 
 ## Challenge - Improve the Python Scripts
-If you fancy a challenge why not develop these simple scripts further and improve them? Maybe you could create a Python function to add the data? Or you could try moving the json data into a separate file and get your script to loop over the json data when it runs. 
+If you fancy a challenge, why not develop these simple scripts further and improve them? Maybe you could create a Python function to add the data? Or you could try moving the JSON data into a separate file and get your script to loop over the JSON data when it runs.
 
-It would be great to see how you develop your scripts and if you want to share this or just ask questions then pop on over to the [NetBox Zero to Hero channel](https://netdev-community.slack.com/archives/C0453L6565C) on the NetDev Community Slack and join in the discussion!
+It would be great to see how you develop your scripts, and if you want to share this or just ask questions, then pop on over to the [NetBox Zero to Hero channel](https://netdev-community.slack.com/archives/C0453L6565C) on the NetDev Community Slack and join in the discussion!
 
 In [Module 7: Automate All the Things!](../7-automate-all-the-things/7-automate-all-the-things.md) you will learn how to automate the generation of device configurations, by using Ansible to pull data from NetBox and render the configuration files from Jinja2 templates. 
 

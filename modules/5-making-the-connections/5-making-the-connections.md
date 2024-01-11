@@ -31,7 +31,7 @@ From the [docs](https://docs.netbox.dev/en/stable/features/devices-cabling/#cabl
 Eric has planned the following cabling schedule for the new Brisbane site, and this needs to be added to NetBox. The ISP connection cables will be added in a later module. 
 
 ### Device to Device Interface connections
-These cables will interconnect network devices over Ethernet interfaces. For example a direct connection from the WAN Router to the Access Switch.
+These cables will interconnect network devices over Ethernet interfaces. For example, a direct connection will exist from the WAN Router to the Access Switch.
 
 | Device A | Interface A | Device B | Interface B | Cable Type | Cable Color | Cable Length 
 | --- | --- | --- | --- | :---: | :---: | :---: |
@@ -40,7 +40,7 @@ These cables will interconnect network devices over Ethernet interfaces. For exa
 | AUBRI01-CON-1 | Ethernet | AUBRI01-SW-1 | ge-0/0/46 | CAT6 | Red | 0.5M |
 
 ### Device to Console Server connections
-These cables will connect the console port on WAN Router and Switch to Console server ports. These connections will be used for remote out-of-band access to the devices should it be required.
+These cables will connect the console port on the WAN Router and Switch to Console server ports. These connections will be used for remote out-of-band access to the devices should it be required.
 
 | Device A | Interface A | Device B | Interface B | Cable Type | Cable Color | Cable Length 
 | --- | --- | --- | --- | :---: | :---: | :---: |
